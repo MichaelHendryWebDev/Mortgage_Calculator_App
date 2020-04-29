@@ -38,3 +38,4 @@ class MortgageContainer extends Component {
     )
   }
 }
+export default MortgageContainer;
