@@ -25,13 +25,16 @@ class MortgageContainer extends Component {
 
   render() {
     return (
-      <div>
+      <div id="mortgage-container">
         <h1>Mortgage Calculator!</h1>
           <h2>Enter your salary!</h2>
           <MortgageForm
           onRequestSubmit={this.addCustomerDetails}
           />
-          <h2>Your maximum mortgage value is:{this.maxMortgageValue}</h2>
+          <MortgageCalculator
+          salary = {this.state.salary}
+          customer = {this.state.customer}
+          />
 
       </div>
     )
