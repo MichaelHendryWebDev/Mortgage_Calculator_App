@@ -5,7 +5,7 @@ class MortgageForm extends Component {
     super(props);
     this.state = {
       customer: '',
-      salary:  null
+      salary:  0
     };
 
     this.handleCustomerChange = this.handleCustomerChange.bind(this);
@@ -20,13 +20,10 @@ class MortgageForm extends Component {
     if (!salary || !customer) {
       return
     }
-    this.props.onRequestSubmit({
-      customer: customer,
-      salary: salary
-    });
+    this.props.onRequestSubmit(customer, parseInt(salary));
     this.setState({
       customer: '',
-      salary: null
+      salary: 0
     });
   }
 
@@ -49,7 +46,7 @@ class MortgageForm extends Component {
       <input
       type="number"
       placeholder="Add Salary"
-      value={this.state.number}
+      value={this.state.salary}
       onChange={this.handleSalaryChange}/>
       <input type="submit" value="Submit"/>
       </form>

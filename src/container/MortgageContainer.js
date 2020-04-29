@@ -8,9 +8,10 @@ class MortgageContainer extends Component {
 
     this.state = {
       customer: '',
-      salary: null,
-      maxMortgageValue: null
+      salary: 0,
+      maxMortgageValue: 0
     };
+    this.addCustomerDetails = this.addCustomerDetails.bind(this);
   }
 
   addCustomerDetails(customer, salary) {
@@ -27,13 +28,11 @@ class MortgageContainer extends Component {
       <div>
         <h1>Mortgage Calculator!</h1>
           <h2>Enter your salary!</h2>
-          <MorgageForm
-          onRequestSubmit={addCustomerDetails}
+          <MortgageForm
+          onRequestSubmit={this.addCustomerDetails}
           />
-          <h2>Your maximum mortgage value is:{maxMortgageValue}</h2>
-          <MortgageCalculator
-            salary={this.state.salary}
-          />
+          <h2>Your maximum mortgage value is:{this.maxMortgageValue}</h2>
+
       </div>
     )
   }
